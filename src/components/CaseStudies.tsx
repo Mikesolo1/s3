@@ -2,19 +2,22 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { PlayCircle, ArrowRight, TrendingUp, DollarSign, Users } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const CaseCard = ({ 
   title, 
   client, 
   problem, 
   solution, 
-  results 
+  results,
+  listenText
 }: { 
   title: string, 
   client: string, 
   problem: string, 
   solution: string[], 
-  results: {label: string, value: string}[] 
+  results: {label: string, value: string}[],
+  listenText: string
 }) => (
   <div className="bg-white rounded-xl shadow-lg overflow-hidden">
     <div className="bg-whatsapp p-4">
@@ -52,65 +55,70 @@ const CaseCard = ({
         </div>
       </div>
       <Button variant="outline" className="w-full mt-2">
-        <PlayCircle className="h-4 w-4 mr-2" /> Послушать отзыв
+        <PlayCircle className="h-4 w-4 mr-2" /> {listenText}
       </Button>
     </div>
   </div>
 );
 
 const CaseStudies = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="cases" className="py-16 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Кейсы наших клиентов</h2>
+          <h2 className="text-3xl font-bold mb-4">{t("cases.title")}</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Реальные результаты от внедрения WhatsApp-маркетинга с нашим сервисом
+            {t("cases.subtitle")}
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           <CaseCard
-            title="ТОП-1 школа психологии"
-            client="Школа психологии, лидер на рынке психологических курсов"
-            problem="Быстро уведомить клиентов о старте нового продукта и повысить конверсию доходимости до вебинаров"
+            title={t("cases.psych.title")}
+            client={t("cases.psych.client")}
+            problem={t("cases.psych.problem")}
             solution={[
-              "Автоматизировали рассылки WhatsApp",
-              "Настроили воронку продаж",
-              "Сделали интеграцию с AMOCRM"
+              t("cases.psych.solution1"),
+              t("cases.psych.solution2"),
+              t("cases.psych.solution3")
             ]}
             results={[
-              {label: "Увеличение доходимости на вебинар", value: "+10%"},
-              {label: "Снижение цены заявки", value: "в 2 раза"}
+              {label: t("cases.psych.result1.label"), value: t("cases.psych.result1.value")},
+              {label: t("cases.psych.result2.label"), value: t("cases.psych.result2.value")}
             ]}
+            listenText={t("cases.listen")}
           />
           <CaseCard
-            title="ТОП-1 школа астрологии"
-            client="Школа астрологии, лидер на рынке астрологических прогнозов в России"
-            problem="Реализовать приглашения на вебинары и повысить конверсию доходимости"
+            title={t("cases.astro.title")}
+            client={t("cases.astro.client")}
+            problem={t("cases.astro.problem")}
             solution={[
-              "Автоматизировали рассылки WhatsApp",
-              "Настроили воронку продаж",
-              "Сделали интеграцию с AMOCRM"
+              t("cases.astro.solution1"),
+              t("cases.astro.solution2"),
+              t("cases.astro.solution3")
             ]}
             results={[
-              {label: "Увеличение доходимости на вебинар", value: "+7%"},
-              {label: "Снижение стоимости чекина", value: "150₽"}
+              {label: t("cases.astro.result1.label"), value: t("cases.astro.result1.value")},
+              {label: t("cases.astro.result2.label"), value: t("cases.astro.result2.value")}
             ]}
+            listenText={t("cases.listen")}
           />
           <CaseCard
-            title="Федеральная сеть магазинов «Алло Мама»"
-            client="Сеть оффлайн магазинов аксессуаров для телефонов и гаджетов"
-            problem="Настроить автоматизированные рассылки по сегментам ЦА: спящие клиенты, низкий чек, потерянные"
+            title={t("cases.allo.title")}
+            client={t("cases.allo.client")}
+            problem={t("cases.allo.problem")}
             solution={[
-              "Автоматизировали рассылки WhatsApp",
-              "Настроили воронку продаж",
-              "Интегрировали промокоды"
+              t("cases.allo.solution1"),
+              t("cases.allo.solution2"),
+              t("cases.allo.solution3")
             ]}
             results={[
-              {label: "Увеличение доходимости в оффлайн магазины", value: "+7%"},
-              {label: "Замеры через промокоды", value: "Рост продаж"}
+              {label: t("cases.allo.result1.label"), value: t("cases.allo.result1.value")},
+              {label: t("cases.allo.result2.label"), value: t("cases.allo.result2.value")}
             ]}
+            listenText={t("cases.listen")}
           />
         </div>
         
@@ -118,43 +126,43 @@ const CaseStudies = () => {
           <div className="bg-gray-50 rounded-xl p-8">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
-                <h3 className="text-2xl font-bold mb-4">Кейс: Рассылка WhatsApp для возврата клиентов</h3>
+                <h3 className="text-2xl font-bold mb-4">{t("cases.clothes.title")}</h3>
                 <div className="mb-4">
-                  <div className="font-medium mb-1">Магазин одежды для детей (Казахстан)</div>
-                  <p className="text-gray-600">Задача: Увеличить продажи, мотивируя клиентов возвращаться, покупать чаще и тратить больше</p>
+                  <div className="font-medium mb-1">{t("cases.clothes.client")}</div>
+                  <p className="text-gray-600">{t("cases.clothes.task")}</p>
                 </div>
                 <div className="bg-white p-4 rounded-lg mb-4">
-                  <div className="text-sm text-gray-500 mb-2">Статистика:</div>
+                  <div className="text-sm text-gray-500 mb-2">{t("cases.clothes.stats")}</div>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
                     <div>
-                      <div className="text-sm text-gray-600">Сообщений доставлено</div>
+                      <div className="text-sm text-gray-600">{t("cases.clothes.delivered")}</div>
                       <div className="font-bold">571</div>
                     </div>
                     <div>
-                      <div className="text-sm text-gray-600">Сообщений прочитано</div>
+                      <div className="text-sm text-gray-600">{t("cases.clothes.read")}</div>
                       <div className="font-bold">517</div>
                     </div>
                     <div>
-                      <div className="text-sm text-gray-600">Кол-во клиентов</div>
+                      <div className="text-sm text-gray-600">{t("cases.clothes.clients")}</div>
                       <div className="font-bold">34</div>
                     </div>
                   </div>
                 </div>
                 <div className="bg-whatsapp/10 p-4 rounded-lg">
-                  <div className="text-lg font-bold mb-2">Результаты:</div>
+                  <div className="text-lg font-bold mb-2">{t("cases.clothes.results")}</div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="flex items-center">
                       <TrendingUp className="h-8 w-8 text-whatsapp mr-3" />
                       <div>
-                        <div className="font-bold">+5,000,000 ТГ</div>
-                        <div className="text-sm text-gray-600">Рост выручки</div>
+                        <div className="font-bold">{t("cases.clothes.revenue.value")}</div>
+                        <div className="text-sm text-gray-600">{t("cases.clothes.revenue")}</div>
                       </div>
                     </div>
                     <div className="flex items-center">
                       <DollarSign className="h-8 w-8 text-whatsapp mr-3" />
                       <div>
-                        <div className="font-bold">+6,000 ТГ</div>
-                        <div className="text-sm text-gray-600">Рост среднего чека</div>
+                        <div className="font-bold">{t("cases.clothes.check.value")}</div>
+                        <div className="text-sm text-gray-600">{t("cases.clothes.check")}</div>
                       </div>
                     </div>
                   </div>
@@ -166,16 +174,16 @@ const CaseStudies = () => {
                     <div className="inline-block p-3 bg-green-100 rounded-full mb-2">
                       <Users className="h-6 w-6 text-whatsapp" />
                     </div>
-                    <h4 className="text-lg font-bold">Совет от эксперта</h4>
+                    <h4 className="text-lg font-bold">{t("cases.expert.title")}</h4>
                   </div>
                   <blockquote className="text-gray-600 italic mb-4">
-                    "Продавать клиентам, которые у Вас уже покупали намного проще и дешевле чем привлекать новых"
+                    {t("cases.expert.quote")}
                   </blockquote>
                   <div className="flex items-center">
                     <div className="h-12 w-12 rounded-full bg-gray-200 mr-3"></div>
                     <div>
-                      <div className="font-medium">Андрей Недорезов</div>
-                      <div className="text-sm text-gray-500">CEO сервиса S3</div>
+                      <div className="font-medium">{t("cases.expert.name")}</div>
+                      <div className="text-sm text-gray-500">{t("cases.expert.position")}</div>
                     </div>
                   </div>
                 </div>
