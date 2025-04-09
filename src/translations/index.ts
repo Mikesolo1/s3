@@ -1,4 +1,3 @@
-
 export const translations = {
   ru: {
     // Header
@@ -8,6 +7,9 @@ export const translations = {
     "menu.about": "О нас",
     "button.login": "Войти",
     "button.contact": "Связаться",
+
+    // Language
+    "language.selected": "язык выбран",
 
     // Hero
     "hero.badge": "Официальный партнер Meta",
@@ -96,7 +98,7 @@ export const translations = {
     "cases.allo.result1.label": "Увеличение доходимости в оффлайн магазины",
     "cases.allo.result1.value": "+7%",
     "cases.allo.result2.label": "Замеры через промокоды",
-    "cases.allo.result2.value": "Рост продаж",
+    "cases.allo.result2.value": "Рост про��аж",
     "cases.listen": "Послушать отзыв",
     
     "cases.clothes.title": "Кейс: Рассылка WhatsApp для возврата клиентов",
@@ -244,6 +246,9 @@ export const translations = {
     "button.login": "Кіру",
     "button.contact": "Байланысу",
 
+    // Language
+    "language.selected": "тілі таңдалды",
+
     // Hero
     "hero.badge": "Meta ресми серіктесі",
     "hero.title": "WhatsApp арқылы сатуды 30 минутта қосамыз",
@@ -352,7 +357,7 @@ export const translations = {
     "cases.expert.name": "Андрей Недорезов",
     "cases.expert.position": "S3 қызметінің бас директоры",
 
-    // Stats - Added missing translations
+    // Stats
     "stats.title": "Статистика және аналитика",
     "stats.subtitle": "WhatsApp-тағы барлық әрекеттер бойынша толық ашықтық және егжей-тегжейлі есептер",
     
@@ -388,7 +393,7 @@ export const translations = {
     "stats.economy.read": "Хабарламаларды оқу",
     "stats.economy.click": "Сілтемелер бойынша өту",
 
-    // Pricing - Added missing translations
+    // Pricing
     "pricing.title": "Бізге хабарламаларды тестілеуге келіңіз",
     "pricing.subtitle": "1000 хабарламаға арналған тегін тестілік таратылым",
     
@@ -409,7 +414,7 @@ export const translations = {
     "pricing.why.manager": "Жеке менеджер",
     "pricing.why.manager.desc": "Қызметті пайдаланудың барлық кезеңдерінде жеке қолдау",
 
-    // Contact - Added missing translations
+    // Contact
     "contact.title": "WhatsApp-ты бизнесіңізге енгізуді бастаңыз",
     "contact.subtitle": "Тегін кеңес алу үшін өтінім қалдырыңыз",
     
@@ -424,7 +429,7 @@ export const translations = {
     "contact.success": "Өтінім жіберілді",
     "contact.success.desc": "Біздің маман сізбен жақын арада байланысады",
 
-    // About - Added missing translations
+    // About
     "about.title": "Біз кімбіз S3?",
     "about.subtitle": "Бізбен жұмыс істеу оңай және ыңғайлы. Біз WhatsApp хабарламаларын терең түсінетін және барлық нәрсені автоматтандыруға құштар командамыз",
     
@@ -436,12 +441,12 @@ export const translations = {
     "about.contact.button": "Бізбен байланысу",
     
     "about.friendly.title": "Адами бейнесі бар достық қызмет",
-    "about.friendly.desc": "Біз әрбір бизнестің артында адамдар тұрғанын түсінеміз. Сондықтан біздің қолдауымыз әрдайым қол жетімді, достық және кез келген сұрақтарда көмек көрсетуге дайын. Біз тек технологияны ұсынып қана қоймай, бизнесті дамытуда серіктес боламыз.",
+    "about.friendly.desc": "Біз әрбір бизнестің артында адамдар тұрғанын түсінеміз. Сондықтан біздің қолдауымыз әрдайым қол жетімді, до��тық және кез келген сұрақтарда көмек көрсетуге дайын. Біз тек технологияны ұсынып қана қоймай, бизнесті дамытуда серіктес боламыз.",
     
     "about.contacts.title": "Біздің байланыстар",
     "about.legal.title": "Заңды ақпарат",
 
-    // Footer - Added missing translations
+    // Footer
     "footer.partner": "WhatsApp Business API интеграциясы үшін Meta ресми серіктесі",
     
     "footer.products": "Өнімдер",

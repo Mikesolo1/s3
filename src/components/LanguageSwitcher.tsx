@@ -1,17 +1,35 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Globe } from 'lucide-react';
 import { useLanguage } from '@/contexts/LanguageContext';
+import { toast } from "sonner";
 
 const LanguageSwitcher = () => {
   const { language, setLanguage, t } = useLanguage();
+
+  // Show toast when language changes
+  useEffect(() => {
+    if (document.readyState === 'complete') {
+      const languageName = language === 'ru' ? 'Русский' : 'Қазақша';
+      toast.success(`${languageName} ${t("language.selected")}`, {
+        duration: 2000,
+      });
+    }
+  }, [language, t]);
+
+  const handleLanguageChange = (lang: 'ru' | 'kz') => {
+    if (lang !== language) {
+      setLanguage(lang);
+      console.log("Language changed to:", lang);
+    }
+  };
 
   return (
     <div className="relative inline-block">
       <div className="flex items-center bg-gray-100 rounded-full p-1 border border-gray-200 shadow-sm">
         <button
-          onClick={() => setLanguage('ru')}
-          className={`px-2 py-1 text-sm font-medium rounded-full transition-colors ${
+          onClick={() => handleLanguageChange('ru')}
+          className={`px-3 py-1.5 text-sm font-medium rounded-full transition-colors ${
             language === 'ru' ? 'bg-white text-whatsapp shadow-sm' : 'text-gray-600 hover:text-whatsapp'
           }`}
           aria-label="Русский язык"
@@ -19,8 +37,8 @@ const LanguageSwitcher = () => {
           {t("lang.ru")}
         </button>
         <button
-          onClick={() => setLanguage('kz')}
-          className={`px-2 py-1 text-sm font-medium rounded-full transition-colors ${
+          onClick={() => handleLanguageChange('kz')}
+          className={`px-3 py-1.5 text-sm font-medium rounded-full transition-colors ${
             language === 'kz' ? 'bg-white text-whatsapp shadow-sm' : 'text-gray-600 hover:text-whatsapp'
           }`}
           aria-label="Казахский язык"

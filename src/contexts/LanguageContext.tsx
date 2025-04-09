@@ -1,5 +1,5 @@
 
-import React, { createContext, useState, useContext, ReactNode } from 'react';
+import React, { createContext, useState, useContext, ReactNode, useEffect } from 'react';
 import { translations } from '@/translations';
 
 export type Language = 'ru' | 'kz';
@@ -12,8 +12,24 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
+// Get initial language from localStorage or default to 'ru'
+const getInitialLanguage = (): Language => {
+  if (typeof window !== 'undefined') {
+    const savedLanguage = localStorage.getItem('language') as Language;
+    if (savedLanguage === 'ru' || savedLanguage === 'kz') {
+      return savedLanguage;
+    }
+  }
+  return 'ru';
+};
+
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const [language, setLanguage] = useState<Language>('ru');
+  const [language, setLanguage] = useState<Language>(getInitialLanguage());
+
+  // Save language to localStorage when it changes
+  useEffect(() => {
+    localStorage.setItem('language', language);
+  }, [language]);
 
   const t = (key: string): string => {
     return translations[language][key] || key;
