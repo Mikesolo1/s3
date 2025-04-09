@@ -29,9 +29,15 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   // Save language to localStorage when it changes
   useEffect(() => {
     localStorage.setItem('language', language);
+    console.log('Language set to:', language);
   }, [language]);
 
   const t = (key: string): string => {
+    // Check if the translation exists
+    if (!translations[language][key]) {
+      console.warn(`Translation missing for key: "${key}" in language: "${language}"`);
+      return key;
+    }
     return translations[language][key] || key;
   };
 

@@ -14,13 +14,14 @@ const LanguageSwitcher = () => {
       toast.success(`${languageName} ${t("language.selected")}`, {
         duration: 2000,
       });
+      console.log("Language switched to:", language, "Toast shown for:", languageName);
     }
   }, [language, t]);
 
   const handleLanguageChange = (lang: 'ru' | 'kz') => {
     if (lang !== language) {
+      console.log("Changing language from", language, "to", lang);
       setLanguage(lang);
-      console.log("Language changed to:", lang);
     }
   };
 
