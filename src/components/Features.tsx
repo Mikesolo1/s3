@@ -6,7 +6,7 @@ import {
   Users, 
   MessageCircle, 
   ChevronRight, 
-  Personalization, 
+  UserCog, 
   Building, 
   MessagesSquare,
   Image,
@@ -42,7 +42,7 @@ const Features = () => {
             description="Запуск за 30 минут без сложных и долгих интеграций. Быстрый старт ваших продаж."
           />
           <FeatureCard
-            icon={<Personalization className="h-6 w-6 text-whatsapp" />}
+            icon={<UserCog className="h-6 w-6 text-whatsapp" />}
             title="Персонализация"
             description="Клиентам отображается название и логотип вашей компании, что повышает доверие и узнаваемость."
           />
