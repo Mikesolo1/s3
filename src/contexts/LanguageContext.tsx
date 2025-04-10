@@ -17,9 +17,11 @@ const getInitialLanguage = (): Language => {
   if (typeof window !== 'undefined') {
     const savedLanguage = localStorage.getItem('language') as Language;
     if (savedLanguage === 'ru' || savedLanguage === 'kz') {
+      console.log("Initial language from localStorage:", savedLanguage);
       return savedLanguage;
     }
   }
+  console.log("No saved language found, defaulting to 'ru'");
   return 'ru';
 };
 
@@ -33,7 +35,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   }, [language]);
 
   const t = (key: string): string => {
-    // Check if the translation exists
+    // Check if the key exists in translations
     if (!translations[language][key]) {
       console.warn(`Translation missing for key: "${key}" in language: "${language}"`);
       return key;

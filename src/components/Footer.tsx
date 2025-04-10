@@ -1,7 +1,11 @@
 
 import React from 'react';
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const Footer = () => {
+  const { t } = useLanguage();
+  const currentYear = new Date().getFullYear();
+
   return (
     <footer className="bg-gray-900 text-white py-8">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -9,7 +13,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4">S3</h3>
             <p className="text-gray-400 mb-4">
-              Официальный партнер Meta для интеграции WhatsApp Business API
+              {t("footer.partner")}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white">
@@ -31,44 +35,44 @@ const Footer = () => {
           </div>
           
           <div>
-            <h4 className="font-semibold mb-3 text-lg">Продукты</h4>
+            <h4 className="font-semibold mb-3 text-lg">{t("footer.products")}</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white">WhatsApp API</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">Массовые рассылки</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">CRM интеграции</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">Чат-боты</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.product.api")}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.product.mass")}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.product.crm")}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.product.bots")}</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-semibold mb-3 text-lg">Компания</h4>
+            <h4 className="font-semibold mb-3 text-lg">{t("footer.company")}</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white">О нас</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">Кейсы</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">Тарифы</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">Контакты</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.about")}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.cases")}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.pricing")}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.contacts")}</a></li>
             </ul>
           </div>
           
           <div>
-            <h4 className="font-semibold mb-3 text-lg">Поддержка</h4>
+            <h4 className="font-semibold mb-3 text-lg">{t("footer.support")}</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white">Помощь</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">Документация</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">API</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">Партнерство</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.support.help")}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.support.docs")}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.support.api")}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.support.partners")}</a></li>
             </ul>
           </div>
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 flex flex-col md:flex-row justify-between">
           <div className="text-gray-400">
-            &copy; {new Date().getFullYear()} S3. Все права защищены.
+            &copy; {currentYear} S3. {t("footer.rights")}
           </div>
           <div className="mt-4 md:mt-0">
             <ul className="flex space-x-6">
-              <li><a href="#" className="text-gray-400 hover:text-white">Условия использования</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">Политика конфиденциальности</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.terms")}</a></li>
+              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.privacy")}</a></li>
             </ul>
           </div>
         </div>

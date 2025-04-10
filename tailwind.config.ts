@@ -26,9 +26,9 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				whatsapp: {
-					DEFAULT: '#25D366',
-					dark: '#128C7E',
-					light: '#DCF8C6',
+					DEFAULT: 'rgb(98 207 214)',
+					dark: 'rgb(75 186 193)',
+					light: 'rgb(222 243 244)',
 				},
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',

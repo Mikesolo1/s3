@@ -2,15 +2,18 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { PlayCircle, Mail, Phone, MessageSquare } from "lucide-react";
+import { useLanguage } from '@/contexts/LanguageContext';
 
 const About = () => {
+  const { t } = useLanguage();
+  
   return (
     <section id="about" className="py-16 bg-gray-50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">Кто мы вообще такие S3?</h2>
+          <h2 className="text-3xl font-bold mb-4">{t("about.title")}</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            С нами легко и комфортно работать. Мы те ребята, которые глубоко разобрались в WhatsApp рассылках и маньячим за автоматизацию во всем
+            {t("about.subtitle")}
           </p>
         </div>
         
@@ -24,8 +27,8 @@ const About = () => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
                 <div className="p-4 text-white">
-                  <h3 className="font-bold text-lg">Видео о нас</h3>
-                  <p className="text-sm">Узнайте больше о нашем подходе к работе</p>
+                  <h3 className="font-bold text-lg">{t("about.video.title")}</h3>
+                  <p className="text-sm">{t("about.video.subtitle")}</p>
                 </div>
               </div>
             </div>
@@ -33,31 +36,31 @@ const About = () => {
               <div className="flex items-center">
                 <div className="h-16 w-16 rounded-full bg-gray-200 mr-4"></div>
                 <div>
-                  <h3 className="font-bold text-lg">Андрей Недорезов</h3>
-                  <p className="text-gray-600">CEO проекта S3</p>
+                  <h3 className="font-bold text-lg">{t("about.ceo.name")}</h3>
+                  <p className="text-gray-600">{t("about.ceo.position")}</p>
                 </div>
               </div>
               <div className="mt-4">
                 <p className="text-gray-600">
-                  "Мы создали сервис, который решает реальные проблемы бизнеса. Наша миссия - сделать коммуникацию с клиентами эффективной, простой и доступной для компаний любого размера."
+                  {t("about.ceo.quote")}
                 </p>
               </div>
               <Button className="mt-4 w-full bg-whatsapp hover:bg-whatsapp-dark text-white">
-                Связаться с нами
+                {t("about.contact.button")}
               </Button>
             </div>
           </div>
           
           <div className="space-y-6">
             <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="font-bold text-lg mb-3">Friendly-сервис с человеческим лицом</h3>
+              <h3 className="font-bold text-lg mb-3">{t("about.friendly.title")}</h3>
               <p className="text-gray-600">
-                Мы понимаем, что за каждым бизнесом стоят люди. Поэтому наша поддержка всегда доступна, дружелюбна и готова помочь с любыми вопросами. Мы не просто предоставляем технологию, мы становимся вашим партнером в развитии бизнеса.
+                {t("about.friendly.desc")}
               </p>
             </div>
             
             <div className="bg-whatsapp/10 p-6 rounded-lg">
-              <h3 className="font-bold text-lg mb-3">Наши контакты</h3>
+              <h3 className="font-bold text-lg mb-3">{t("about.contacts.title")}</h3>
               <div className="space-y-3">
                 <div className="flex items-center">
                   <Phone className="h-5 w-5 text-whatsapp mr-3" />
@@ -75,7 +78,7 @@ const About = () => {
             </div>
             
             <div className="bg-white p-6 rounded-lg shadow">
-              <h3 className="font-bold text-lg mb-3">Юридическая информация</h3>
+              <h3 className="font-bold text-lg mb-3">{t("about.legal.title")}</h3>
               <div className="text-sm text-gray-600 space-y-1">
                 <div>ИП «ХХХ»</div>
                 <div>ИНН: xxxxxxxxxx</div>
