@@ -98,7 +98,7 @@ export const translations = {
     "cases.allo.result1.label": "Увеличение доходимости в оффлайн магазины",
     "cases.allo.result1.value": "+7%",
     "cases.allo.result2.label": "Замеры через промокоды",
-    "cases.allo.result2.value": "Рост про��аж",
+    "cases.allo.result2.value": "Рост продаж",
     "cases.listen": "Послушать отзыв",
     
     "cases.clothes.title": "Кейс: Рассылка WhatsApp для возврата клиентов",
@@ -190,6 +190,19 @@ export const translations = {
     "contact.sending": "Отправка...",
     "contact.success": "Заявка отправлена",
     "contact.success.desc": "Наш специалист свяжется с вами в ближайшее время",
+
+    // Team
+    "team.title": "Наша команда",
+    "team.subtitle": "Профессионалы с большим опытом в сфере предпринимательства и разработки",
+    "team.nedorezov.experience": "ОПЫТ: Product manager",
+    "team.nedorezov.background": "Предпринимательство",
+    "team.kireev.experience": "ОПЫТ: 5+ лет эксперт в AI",
+    "team.kireev.background": "Предпринимательство",
+    "team.burbach.experience": "ОПЫТ: Product Marketing Manager",
+    "team.burbach.background": "Предпринимательство",
+    "team.burbach.degree": "СТЕПЕНЬ: IMBA (Curtin Australia)",
+    "team.solomatin.experience": "ОПЫТ: E-COMMERCE 15 лет",
+    "team.solomatin.background": "Предпринимательство",
 
     // About
     "about.title": "Кто мы вообще такие S3?",
@@ -429,6 +442,19 @@ export const translations = {
     "contact.success": "Өтінім жіберілді",
     "contact.success.desc": "Біздің маман сізбен жақын арада байланысады",
 
+    // Team
+    "team.title": "Біздің команда",
+    "team.subtitle": "Кәсіпкерлік пен дамыту саласындағы үлкен тәжірибесі бар кәсіпқойлар",
+    "team.nedorezov.experience": "ТӘЖІРИБЕ: Product manager",
+    "team.nedorezov.background": "Кәсіпкерлік",
+    "team.kireev.experience": "ТӘЖІРИБЕ: 5+ жыл AI сарапшысы",
+    "team.kireev.background": "Кәсіпкерлік",
+    "team.burbach.experience": "ТӘЖІРИБЕ: Product Marketing Manager",
+    "team.burbach.background": "Кәсіпкерлік",
+    "team.burbach.degree": "ДӘРЕЖЕ: IMBA (Curtin Australia)",
+    "team.solomatin.experience": "ТӘЖІРИБЕ: E-COMMERCE 15 жыл",
+    "team.solomatin.background": "Кәсіпкерлік",
+
     // About
     "about.title": "Біз кімбіз S3?",
     "about.subtitle": "Бізбен жұмыс істеу оңай және ыңғайлы. Біз WhatsApp хабарламаларын терең түсінетін және барлық нәрсені автоматтандыруға құштар командамыз",
@@ -441,7 +467,7 @@ export const translations = {
     "about.contact.button": "Бізбен байланысу",
     
     "about.friendly.title": "Адами бейнесі бар достық қызмет",
-    "about.friendly.desc": "Біз әрбір бизнестің артында адамдар тұрғанын түсінеміз. Сондықтан біздің қолдауымыз әрдайым қол жетімді, до��тық және кез келген сұрақтарда көмек көрсетуге дайын. Біз тек технологияны ұсынып қана қоймай, бизнесті дамытуда серіктес боламыз.",
+    "about.friendly.desc": "Біз әрбір бизнестің артында адамдар тұрғанын түсінеміз. Сондықтан біздің қолдауымыз әрдайым қол жетімді, достық және кез келген сұрақтарда көмек көрсетуге дайын. Біз тек технологияны ұсынып қана қоймай, бизнесті дамытуда серіктес боламыз.",
     
     "about.contacts.title": "Біздің байланыстар",
     "about.legal.title": "Заңды ақпарат",
@@ -463,16 +489,4 @@ export const translations = {
     
     "footer.support": "Қолдау",
     "footer.support.help": "Көмек",
-    "footer.support.docs": "Құжаттама",
-    "footer.support.api": "API",
-    "footer.support.partners": "Серіктестік",
-    
-    "footer.rights": "Барлық құқықтар қорғалған.",
-    "footer.terms": "Пайдалану шарттары",
-    "footer.privacy": "Құпиялылық саясаты",
-
-    // Language Switcher
-    "lang.ru": "РУС",
-    "lang.kz": "ҚАЗ"
-  }
-};
+    "
