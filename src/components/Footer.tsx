@@ -12,7 +12,9 @@ const Footer = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
-            <h3 className="text-2xl font-bold mb-4">S3</h3>
+            <h3 className="text-2xl font-bold mb-4">
+              <Link to="/" className="hover:text-whatsapp transition-colors">S3</Link>
+            </h3>
             <p className="text-gray-400 mb-4">
               {t("footer.partner")}
             </p>
@@ -48,9 +50,9 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-3 text-lg">{t("footer.company")}</h4>
             <ul className="space-y-2">
-              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.about")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.cases")}</a></li>
-              <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.pricing")}</a></li>
+              <li><a href="/#about" className="text-gray-400 hover:text-white">{t("footer.company.about")}</a></li>
+              <li><a href="/#cases" className="text-gray-400 hover:text-white">{t("footer.company.cases")}</a></li>
+              <li><Link to="/tariffs" className="text-gray-400 hover:text-white">{t("footer.company.pricing")}</Link></li>
               <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.contacts")}</a></li>
               <li><Link to="/partner-program" className="text-gray-400 hover:text-white">{t("footer.company.partner")}</Link></li>
             </ul>

@@ -3,6 +3,7 @@ import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Check, ChevronRight } from "lucide-react";
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
 
 const Pricing = () => {
   const { t } = useLanguage();
@@ -66,8 +67,10 @@ const Pricing = () => {
           </div>
           
           <div className="mt-12 text-center">
-            <Button variant="outline" className="mx-auto">
-              {t("pricing.viewall")} <ChevronRight className="h-4 w-4 ml-1" />
+            <Button asChild variant="outline" className="mx-auto">
+              <Link to="/tariffs">
+                {t("pricing.viewall")} <ChevronRight className="h-4 w-4 ml-1" />
+              </Link>
             </Button>
           </div>
           
