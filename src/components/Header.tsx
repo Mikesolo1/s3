@@ -1,9 +1,10 @@
 
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { PhoneCall } from "lucide-react";
+import { PhoneCall, HandshakeIcon } from "lucide-react";
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const { t } = useLanguage();
@@ -30,6 +31,9 @@ const Header = () => {
           <a href="#about" className="text-sm font-medium text-gray-800 hover:text-whatsapp transition-colors">
             {t("menu.about")}
           </a>
+          <Link to="/partner-program" className="text-sm font-medium text-gray-800 hover:text-whatsapp transition-colors">
+            {t("menu.partner")}
+          </Link>
         </nav>
         
         <div className="flex items-center space-x-4">

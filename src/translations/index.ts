@@ -1,4 +1,3 @@
-
 export const translations = {
   ru: {
     // Header
@@ -217,7 +216,7 @@ export const translations = {
     "about.contact.button": "Связаться с нами",
     
     "about.friendly.title": "Friendly-сервис с человеческим лицом",
-    "about.friendly.desc": "Мы понимаем, что за каждым бизнесом стоят люди. Поэтому наша поддержка всегда доступна, дружелюбна и готова помочь с любыми вопросами. Мы не просто предоставляем технологию, мы становимся вашим партнером в развитии бизнеса.",
+    "about.friendly.desc": "Мы понимаем, что за каждым бизнесом стоят люди. Поэтому наша поддержка в��егда доступна, дружелюбна и готова помочь с любыми вопросами. Мы не просто предоставляем технологию, мы становимся вашим партнером в развитии бизнеса.",
     
     "about.contacts.title": "Наши контакты",
     "about.legal.title": "Юридическая информация",
@@ -249,7 +248,74 @@ export const translations = {
 
     // Language Switcher
     "lang.ru": "РУС",
-    "lang.kz": "ҚАЗ"
+    "lang.kz": "ҚАЗ",
+
+    // Partner Program
+    "menu.partner": "Партнерам",
+    "partner.title": "Партнерская программа",
+    "partner.subtitle": "Зарабатывайте с нами на внедрении WhatsApp в бизнес клиентов",
+    "partner.benefits.title": "Выгоды для партнеров",
+    "partner.benefits.point1": "В��сокие комиссионные вознаграждения",
+    "partner.benefits.point2": "Работа с востребованным продуктом",
+    "partner.benefits.point3": "Полная техническая поддержка",
+    "partner.benefits.point4": "Рекламные материалы и обучение",
+    "partner.button": "Стать партнером",
+    "partner.badge": "Партнерская программа",
+
+    "partner.detailed.title": "Партнерская программа S3",
+    "partner.detailed.subtitle": "Зарабатывайте с нами, рекомендуя решения для WhatsApp-маркетинга компаниям любого масштаба",
+    "partner.detailed.button": "Присоединиться к программе",
+
+    "partner.detailed.benefits.title": "Преимущества партнерства с S3",
+    "partner.detailed.benefits.earning.title": "Высокий доход",
+    "partner.detailed.benefits.earning.desc": "Получайте до 15% комиссии с первой продажи и регулярные отчисления с повторных платежей",
+    "partner.detailed.benefits.remote.title": "Работа откуда угодно",
+    "partner.detailed.benefits.remote.desc": "Никаких ограничений по местоположению, работайте из любой точки мира",
+    "partner.detailed.benefits.growth.title": "Растущий рынок",
+    "partner.detailed.benefits.growth.desc": "WhatsApp-маркетинг стремительно развивается с растущим спросом",
+    "partner.detailed.benefits.analytics.title": "Прозрачная аналитика",
+    "partner.detailed.benefits.analytics.desc": "Детальные отчеты по лидам, конверсиям и доходам в личном кабинете",
+    "partner.detailed.benefits.support.title": "Поддержка партнеров",
+    "partner.detailed.benefits.support.desc": "Обучение, маркетинговые материалы и персональный менеджер",
+    "partner.detailed.benefits.trust.title": "Надежный продукт",
+    "partner.detailed.benefits.trust.desc": "Рекомендуйте клиентам проверенное решение от официального партнера Meta",
+
+    "partner.detailed.how.title": "Как работает партнерская программа",
+    "partner.detailed.how.step1.title": "Регистрация",
+    "partner.detailed.how.step1.desc": "Заполните заявку на сайте и получите доступ к партнерскому личному кабинету",
+    "partner.detailed.how.step2.title": "Привлечение клиентов",
+    "partner.detailed.how.step2.desc": "Рекомендуйте наши решения своим клиентам или привлекайте новых",
+    "partner.detailed.how.step3.title": "Отслеживание результатов",
+    "partner.detailed.how.step3.desc": "Контролируйте статус ваших лидов и конверсии в партнерском кабинете",
+    "partner.detailed.how.step4.title": "Получение вознаграждения",
+    "partner.detailed.how.step4.desc": "Регулярно получайте комиссионные за каждого привлеченного клиента",
+
+    "partner.detailed.commission.title": "Комиссионная структура",
+    "partner.detailed.commission.first.title": "Первая продажа",
+    "partner.detailed.commission.first.desc": "Получайте вознаграждение с первой оплаты нового клиента",
+    "partner.detailed.commission.first.rate": "от суммы первого платежа",
+    "partner.detailed.commission.recurring.title": "Регулярные платежи",
+    "partner.detailed.commission.recurring.desc": "Продолжайте получать комиссию с каждого последующего платежа",
+    "partner.detailed.commission.recurring.rate": "от суммы регулярных платежей",
+    "partner.detailed.commission.note": "Размер комиссии зависит от статуса партнера и объема привлеченных клиентов",
+    "partner.detailed.commission.button": "Узнать подробнее о комиссиях",
+
+    "partner.detailed.faq.title": "Часто задаваемые вопросы",
+    "partner.detailed.faq.q1": "Кто может стать партнером S3?",
+    "partner.detailed.faq.a1": "Партнером может стать любой, кто работает с бизнес-клиентами: маркетинговые агентства, фрилансеры, консультанты, интеграторы и другие специалисты в сфере digital-маркетинга.",
+    "partner.detailed.faq.q2": "Как происходит выплата вознаграждения?",
+    "partner.detailed.faq.a2": "Выплаты производятся ежемесячно на указанные вами реквизиты после достижения минимальной суммы к выплате. Мы работаем с юридическими лицами, ИП и самозанятыми.",
+    "partner.detailed.faq.q3": "Какие маркетинговые материалы предоставляются партнерам?",
+    "partner.detailed.faq.a3": "Мы предоставляем презентации, коммерческие предложения, кейсы, баннеры, текстовые материалы и обучающие видео, которые помогут вам эффективно презентовать наш продукт.",
+    "partner.detailed.faq.q4": "Как долго длится партнерское соглашение?",
+    "partner.detailed.faq.a4": "Партнерское соглашение заключается на 1 год с автоматической пролонгацией. Вы можете прекратить сотрудничество в любое время, уведомив нас за 30 дней.",
+
+    "partner.detailed.cta.title": "Начните зарабатывать с S3 уже сегодня",
+    "partner.detailed.cta.subtitle": "Присоединяйтесь к партнерской программе и получайте стабильный доход, рекомендуя востребованные решения для WhatsApp-маркетинга",
+    "partner.detailed.cta.button": "Оставить заявку на партнерство",
+    
+    "footer.company.partner": "Партнерская программа",
+
   },
   kz: {
     // Header
@@ -332,7 +398,7 @@ export const translations = {
 
     "cases.astro.title": "ТОП-1 астрология мектебі",
     "cases.astro.client": "Астрология мектебі, Ресейдегі астрологиялық болжамдар нарығының көшбасшысы",
-    "cases.astro.problem": "Вебинарларға шақыру және келушілер конверсиясын арттыру",
+    "cases.astro.problem": "Веби��арларға шақыру және келушілер конверсиясын арттыру",
     "cases.astro.solution1": "WhatsApp хабарламаларын автоматтандырдық",
     "cases.astro.solution2": "Сату воронкасын орнаттық",
     "cases.astro.solution3": "AMOCRM-мен интеграциялауды жасадық",
@@ -500,6 +566,73 @@ export const translations = {
 
     // Language Switcher
     "lang.ru": "РУС",
-    "lang.kz": "ҚАЗ"
+    "lang.kz": "ҚАЗ",
+
+    // Partner Program
+    "menu.partner": "Серіктестерге",
+    "partner.title": "Серіктестік бағдарлама",
+    "partner.subtitle": "Клиенттердің бизнесіне WhatsApp енгізу арқылы бізбен бірге табыс табыңыз",
+    "partner.benefits.title": "Серіктестер үшін пайдалар",
+    "partner.benefits.point1": "Жоғары комиссиялық сыйақылар",
+    "partner.benefits.point2": "Сұранысқа ие өніммен жұмыс",
+    "partner.benefits.point3": "Толық техникалық қолдау",
+    "partner.benefits.point4": "Жарнамалық материалдар мен оқыту",
+    "partner.button": "Серіктес болу",
+    "partner.badge": "Серіктестік бағдарлама",
+
+    "partner.detailed.title": "S3 серіктестік бағдарламасы",
+    "partner.detailed.subtitle": "Кез-келген масштабтағы компанияларға WhatsApp-маркетинг шешімдерін ұсына отырып, бізбен бірге табыс табыңыз",
+    "partner.detailed.button": "Бағдарламаға қосылу",
+
+    "partner.detailed.benefits.title": "S3-пен серіктестіктің артықшылықтары",
+    "partner.detailed.benefits.earning.title": "Жоғары табыс",
+    "partner.detailed.benefits.earning.desc": "Бірінші сатудан 15%-ға дейін комиссия және қайталама төлемдерден тұрақты аударымдар алыңыз",
+    "partner.detailed.benefits.remote.title": "Кез-келген жерден жұмыс",
+    "partner.detailed.benefits.remote.desc": "Орналасуға қатысты шектеулер жоқ, әлемнің кез-келген нүктесінен жұмыс істеңіз",
+    "partner.detailed.benefits.growth.title": "Өсіп келе жатқан нарық",
+    "partner.detailed.benefits.growth.desc": "WhatsApp-маркетинг өсіп келе жатқан сұраныспен қарқынды дамуда",
+    "partner.detailed.benefits.analytics.title": "Ашық аналитика",
+    "partner.detailed.benefits.analytics.desc": "Жеке кабинетте лидтер, конверсиялар және кірістер бойынша егжей-тегжейлі есептер",
+    "partner.detailed.benefits.support.title": "Серіктестерді қолдау",
+    "partner.detailed.benefits.support.desc": "Оқыту, маркетингтік материалдар және жеке менеджер",
+    "partner.detailed.benefits.trust.title": "Сенімді өнім",
+    "partner.detailed.benefits.trust.desc": "Клиенттерге Meta-ның ресми серіктесінің тексерілген шешімін ұсыныңыз",
+
+    "partner.detailed.how.title": "Серіктестік бағдарлама қалай жұмыс істейді",
+    "partner.detailed.how.step1.title": "Тіркелу",
+    "partner.detailed.how.step1.desc": "Сайтта өтінім толтырыңыз және серіктестік жеке кабинетке қол жеткізіңіз",
+    "partner.detailed.how.step2.title": "Клиенттерді тарту",
+    "partner.detailed.how.step2.desc": "Біздің шешімдерді өз клиенттеріңізге ұсыныңыз немесе жаңаларын тартыңыз",
+    "partner.detailed.how.step3.title": "Нәтижелерді қадағалау",
+    "partner.detailed.how.step3.desc": "Серіктестік кабинетте лидтеріңіздің күйін және конверсияларды бақылаңыз",
+    "partner.detailed.how.step4.title": "Сыйақы алу",
+    "partner.detailed.how.step4.desc": "Әр тартылған клиент үшін комиссиялық сыйақыны тұрақты алыңыз",
+
+    "partner.detailed.commission.title": "Комиссиялық құрылым",
+    "partner.detailed.commission.first.title": "Бірінші сату",
+    "partner.detailed.commission.first.desc": "Жаңа клиенттің бірінші төлемінен сыйақы алыңыз",
+    "partner.detailed.commission.first.rate": "алғашқы төлем сомасынан",
+    "partner.detailed.commission.recurring.title": "Тұрақты төлемдер",
+    "partner.detailed.commission.recurring.desc": "Әрбір келесі төлемнен комиссия алуды жалғастырыңыз",
+    "partner.detailed.commission.recurring.rate": "тұрақты төлемдер сомасынан",
+    "partner.detailed.commission.note": "Комиссия мөлшері серіктес мәртебесіне және тартылған клиенттер көлеміне байланысты",
+    "partner.detailed.commission.button": "Комиссиялар туралы толығырақ білу",
+
+    "partner.detailed.faq.title": "Жиі қойылатын сұрақтар",
+    "partner.detailed.faq.q1": "Кім S3 серіктесі бола алады?",
+    "partner.detailed.faq.a1": "Бизнес-клиенттермен жұмыс істейтін кез келген адам серіктес бола алады: маркетингтік агенттіктер, фрилансерлер, кеңесшілер, интеграторлар және digital-маркетинг саласындағы басқа мамандар.",
+    "partner.detailed.faq.q2": "Сыйақы төлемі қалай жүреді?",
+    "partner.detailed.faq.a2": "Төлемдер ай сайын минималды төлем сомасына жеткеннен кейін сіз көрсеткен деректемелерге жүргізіледі. Біз заңды тұлғалармен, ЖК және өзін-өзі жұмыспен қамтығандармен жұмыс істейміз.",
+    "partner.detailed.faq.q3": "Серіктестерге қандай маркетингтік материалдар ұсынылады?",
+    "partner.detailed.faq.a3": "Біз презентациялар, коммерциялық ұсыныстар, кейстер, баннерлер, мәтіндік материалдар және біздің өнімді тиімді таныстыруға көмектесетін оқыту бейнелерін ұсынамыз.",
+    "partner.detailed.faq.q4": "Серіктестік келісім қанша уақытқа созылады?",
+    "partner.detailed.faq.a4": "Серіктестік келісім 1 жылға автоматты түрде ұзартумен жасалады. Сіз бізге 30 күн бұрын хабарлап, кез-келген уақытта ынтымақтастықты тоқтата аласыз.",
+
+    "partner.detailed.cta.title": "S3-пен бүгін-ақ табыс табуды бастаңыз",
+    "partner.detailed.cta.subtitle": "Серіктестік бағдарламаға қосылыңыз және WhatsApp-маркетинг үшін сұранысқа ие шешімдерді ұсыну арқылы тұрақты табыс алыңыз",
+    "partner.detailed.cta.button": "Серіктестікке өтінім қалдыру",
+    
+    "footer.company.partner": "Серіктестік бағдарлама",
+
   }
 };

@@ -7,6 +7,7 @@ import CaseStudies from '@/components/CaseStudies';
 import Stats from '@/components/Stats';
 import Pricing from '@/components/Pricing';
 import Team from '@/components/Team';
+import Partner from '@/components/Partner';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
@@ -22,6 +23,7 @@ const Index = () => {
         <Stats />
         <Pricing />
         <Team />
+        <Partner />
         <About />
         <Contact />
       </main>

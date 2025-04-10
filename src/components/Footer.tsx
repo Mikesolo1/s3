@@ -52,6 +52,7 @@ const Footer = () => {
               <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.cases")}</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.pricing")}</a></li>
               <li><a href="#" className="text-gray-400 hover:text-white">{t("footer.company.contacts")}</a></li>
+              <li><Link to="/partner-program" className="text-gray-400 hover:text-white">{t("footer.company.partner")}</Link></li>
             </ul>
           </div>
           
