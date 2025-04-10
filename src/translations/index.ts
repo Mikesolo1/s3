@@ -1,3 +1,4 @@
+
 export const translations = {
   ru: {
     // Header
@@ -489,4 +490,16 @@ export const translations = {
     
     "footer.support": "Қолдау",
     "footer.support.help": "Көмек",
-    "
+    "footer.support.docs": "Құжаттама",
+    "footer.support.api": "API",
+    "footer.support.partners": "Серіктестік",
+    
+    "footer.rights": "Барлық құқықтар қорғалған.",
+    "footer.terms": "Қолдану шарттары",
+    "footer.privacy": "Құпиялылық саясаты",
+
+    // Language Switcher
+    "lang.ru": "РУС",
+    "lang.kz": "ҚАЗ"
+  }
+};
