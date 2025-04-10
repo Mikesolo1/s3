@@ -22,8 +22,8 @@ const Index = () => {
         <Stats />
         <Pricing />
         <Team />
-        <Contact />
         <About />
+        <Contact />
       </main>
       <Footer />
     </div>
