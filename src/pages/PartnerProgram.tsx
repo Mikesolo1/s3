@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -13,7 +14,6 @@ import {
 } from 'lucide-react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
-import PartnerForm from '@/components/PartnerForm';
 
 const PartnerProgram = () => {
   const { t } = useLanguage();
@@ -36,12 +36,10 @@ const PartnerProgram = () => {
               <p className="text-xl text-gray-700 mb-10 max-w-3xl mx-auto">
                 {t("partner.detailed.subtitle")}
               </p>
-              <a href="#partner-form">
-                <Button className="bg-whatsapp hover:bg-whatsapp-dark text-white px-8 py-6 rounded-lg text-lg">
-                  <HandshakeIcon className="w-5 h-5 mr-2" />
-                  {t("partner.detailed.button")}
-                </Button>
-              </a>
+              <Button className="bg-whatsapp hover:bg-whatsapp-dark text-white px-8 py-6 rounded-lg text-lg">
+                <HandshakeIcon className="w-5 h-5 mr-2" />
+                {t("partner.detailed.button")}
+              </Button>
             </div>
           </div>
         </section>
@@ -188,13 +186,6 @@ const PartnerProgram = () => {
           </div>
         </section>
         
-        {/* Partner Form Section */}
-        <section id="partner-form" className="py-16 bg-gradient-to-r from-whatsapp/20 to-whatsapp/10">
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-            <PartnerForm />
-          </div>
-        </section>
-        
         {/* FAQ */}
         <section className="py-16 bg-gray-50">
           <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -224,6 +215,24 @@ const PartnerProgram = () => {
                   <p className="text-gray-600">{t("partner.detailed.faq.a4")}</p>
                 </div>
               </div>
+            </div>
+          </div>
+        </section>
+        
+        {/* CTA */}
+        <section className="py-16 bg-gradient-to-r from-whatsapp/20 to-whatsapp/10">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-4xl mx-auto text-center">
+              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                {t("partner.detailed.cta.title")}
+              </h2>
+              <p className="text-xl text-gray-700 mb-10">
+                {t("partner.detailed.cta.subtitle")}
+              </p>
+              <Button className="bg-whatsapp hover:bg-whatsapp-dark text-white px-8 py-6 rounded-lg text-lg flex items-center gap-2 mx-auto">
+                <MailIcon className="w-5 h-5" />
+                {t("partner.detailed.cta.button")}
+              </Button>
             </div>
           </div>
         </section>
