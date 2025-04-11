@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Check, ChevronRight } from "lucide-react";
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Link } from 'react-router-dom';
+import ButtonWithDialog from './ButtonWithDialog';
 
 const Pricing = () => {
   const { t } = useLanguage();
@@ -58,9 +59,9 @@ const Pricing = () => {
               <div className="bg-whatsapp/10 rounded-lg p-4 mt-6 flex items-center justify-between">
                 <div className="font-bold text-lg">{t("pricing.savings")} <span className="text-whatsapp">31 970 ₽</span></div>
                 <div>
-                  <Button className="bg-whatsapp hover:bg-whatsapp-dark text-white">
+                  <ButtonWithDialog className="bg-whatsapp hover:bg-whatsapp-dark text-white" formType="Кнопка «Начать» в разделе Тарифов">
                     {t("hero.button.start")}
-                  </Button>
+                  </ButtonWithDialog>
                 </div>
               </div>
             </div>

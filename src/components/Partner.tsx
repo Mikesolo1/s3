@@ -4,6 +4,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import { HandshakeIcon } from 'lucide-react';
+import ButtonWithDialog from './ButtonWithDialog';
 
 const Partner = () => {
   const { t } = useLanguage();
@@ -51,12 +52,21 @@ const Partner = () => {
           </div>
           
           <div className="text-center">
-            <Button asChild className="bg-whatsapp hover:bg-whatsapp-dark text-white px-8 py-6 rounded-lg text-lg flex items-center gap-2">
-              <Link to="/partner-program">
-                <HandshakeIcon className="w-5 h-5 mr-2" />
-                {t("partner.button")}
-              </Link>
-            </Button>
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Button asChild className="bg-whatsapp hover:bg-whatsapp-dark text-white px-8 py-6 rounded-lg text-lg flex items-center gap-2">
+                <Link to="/partner-program">
+                  <HandshakeIcon className="w-5 h-5 mr-2" />
+                  {t("partner.button")}
+                </Link>
+              </Button>
+              
+              <ButtonWithDialog 
+                className="bg-whatsapp/10 hover:bg-whatsapp/20 text-whatsapp px-8 py-6 rounded-lg text-lg flex items-center gap-2" 
+                formType="Кнопка «Стать партнером» на главной"
+              >
+                {t("partner.contact.button") || "Связаться с нами"}
+              </ButtonWithDialog>
+            </div>
           </div>
         </div>
       </div>
