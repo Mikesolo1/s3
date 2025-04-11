@@ -29,6 +29,9 @@ const TariffDialog = ({
 }: TariffDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useLanguage();
+  
+  console.log("t function:", t);
+  console.log("Dialog title params:", { tariff: tariffName });
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -47,7 +50,7 @@ const TariffDialog = ({
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle>{t("tariffDialog.title", { tariff: tariffName })}</DialogTitle>
+          <DialogTitle>{t("tariffDialog.title")}</DialogTitle>
           <DialogDescription>
             {t("tariffDialog.description")}
           </DialogDescription>
