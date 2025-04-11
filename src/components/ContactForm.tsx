@@ -34,7 +34,7 @@ const ContactForm = ({
     name: z.string().min(2, { message: t("form.errors.name") }),
     phone: z.string().min(5, { message: t("form.errors.phone") }),
     email: z.string().email({ message: t("form.errors.email") }).optional(),
-    message: includeMessage ? z.string().optional() : z.string().optional().optional(),
+    message: includeMessage ? z.string().optional() : z.string().optional(),
     service: z.string().optional(),
   });
 
@@ -53,7 +53,16 @@ const ContactForm = ({
     setIsSubmitting(true);
     
     try {
-      const success = await sendToTelegram(values);
+      // Ensure required fields are handled
+      const telegramData = {
+        name: values.name, // This is required
+        phone: values.phone, // This is required
+        email: values.email,
+        message: values.message,
+        service: values.service
+      };
+      
+      const success = await sendToTelegram(telegramData);
       
       if (success) {
         toast({
