@@ -4,6 +4,8 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Link } from 'react-router-dom';
+import ContactDialog from './ContactDialog';
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -47,12 +49,19 @@ const Hero = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <Button className="bg-whatsapp hover:bg-whatsapp-dark text-white px-8 py-6 text-lg rounded-lg">
+              <ContactDialog
+                title={t("hero.startTitle")}
+                description={t("hero.startDescription")}
+                className="bg-whatsapp hover:bg-whatsapp-dark text-white px-8 py-6 text-lg rounded-lg"
+              >
                 {t("hero.button.start")}
-              </Button>
-              <Button variant="outline" className="px-8 py-6 text-lg rounded-lg">
-                {t("hero.button.price")}
-              </Button>
+              </ContactDialog>
+              
+              <Link to="/tariffs">
+                <Button variant="outline" className="px-8 py-6 text-lg rounded-lg w-full sm:w-auto">
+                  {t("hero.button.price")}
+                </Button>
+              </Link>
             </div>
           </div>
           

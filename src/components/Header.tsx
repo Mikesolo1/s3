@@ -5,6 +5,7 @@ import { PhoneCall } from "lucide-react";
 import { useLanguage } from '@/contexts/LanguageContext';
 import LanguageSwitcher from './LanguageSwitcher';
 import { Link } from 'react-router-dom';
+import ContactDialog from './ContactDialog';
 
 const Header = () => {
   const { t } = useLanguage();
@@ -41,10 +42,14 @@ const Header = () => {
           <Button variant="outline" className="mr-2 hidden md:flex">
             {t("button.login")}
           </Button>
-          <Button className="bg-whatsapp hover:bg-whatsapp-dark text-white flex items-center gap-1">
+          <ContactDialog
+            title={t("header.contactTitle")}
+            description={t("header.contactDescription")}
+            className="bg-whatsapp hover:bg-whatsapp-dark text-white flex items-center gap-1"
+          >
             <PhoneCall className="h-4 w-4 mr-1" />
             {t("button.contact")}
-          </Button>
+          </ContactDialog>
         </div>
       </div>
     </header>

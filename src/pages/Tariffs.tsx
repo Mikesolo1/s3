@@ -6,6 +6,8 @@ import Footer from '@/components/Footer';
 import { Button } from "@/components/ui/button";
 import { Check, ChevronLeft, Ban } from "lucide-react";
 import { Link } from 'react-router-dom';
+import TariffDialog from '@/components/TariffDialog';
+import ContactDialog from '@/components/ContactDialog';
 
 const Tariffs = () => {
   const { t } = useLanguage();
@@ -42,9 +44,12 @@ const Tariffs = () => {
                   <div className="text-3xl font-bold mb-2">15 000 ₽</div>
                   <p className="text-sm text-gray-500 mb-6">{t("tariffs.monthly")}</p>
                   
-                  <Button className="w-full mb-6 bg-whatsapp hover:bg-whatsapp-dark">
+                  <TariffDialog 
+                    tariffName={t("tariffs.basic.name")}
+                    className="w-full mb-6 bg-whatsapp hover:bg-whatsapp-dark"
+                  >
                     {t("tariffs.choose")}
-                  </Button>
+                  </TariffDialog>
                   
                   <ul className="space-y-3">
                     <li className="flex items-start">
@@ -78,9 +83,12 @@ const Tariffs = () => {
                   <div className="text-3xl font-bold mb-2">30 000 ₽</div>
                   <p className="text-sm text-gray-500 mb-6">{t("tariffs.monthly")}</p>
                   
-                  <Button className="w-full mb-6 bg-whatsapp hover:bg-whatsapp-dark">
+                  <TariffDialog 
+                    tariffName={t("tariffs.standard.name")}
+                    className="w-full mb-6 bg-whatsapp hover:bg-whatsapp-dark"
+                  >
                     {t("tariffs.choose")}
-                  </Button>
+                  </TariffDialog>
                   
                   <ul className="space-y-3">
                     <li className="flex items-start">
@@ -111,9 +119,16 @@ const Tariffs = () => {
                   <div className="text-3xl font-bold mb-2">{t("tariffs.contact")}</div>
                   <p className="text-sm text-gray-500 mb-6">{t("tariffs.custom")}</p>
                   
-                  <Button className="w-full mb-6 bg-whatsapp hover:bg-whatsapp-dark">
+                  <ContactDialog 
+                    title={t("tariffs.enterprise.formTitle")}
+                    description={t("tariffs.enterprise.formDescription")}
+                    includeMessage={true}
+                    includeService={true}
+                    service={t("tariffs.enterprise.name")}
+                    className="w-full mb-6 bg-whatsapp hover:bg-whatsapp-dark"
+                  >
                     {t("tariffs.request")}
-                  </Button>
+                  </ContactDialog>
                   
                   <ul className="space-y-3">
                     <li className="flex items-start">
