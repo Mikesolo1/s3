@@ -29,6 +29,9 @@ const TariffDialog = ({
 }: TariffDialogProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useLanguage();
+  
+  console.log("t function:", t);
+  console.log("Dialog title params:", { tariff: tariffName });
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
@@ -42,7 +45,7 @@ const TariffDialog = ({
             {children}
           </Button>
         ) : (
-          children
+          <div className="inline-block">{children}</div>
         )}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
