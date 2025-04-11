@@ -11,7 +11,14 @@ import PrivacyPolicy from "./pages/PrivacyPolicy";
 import PartnerProgram from "./pages/PartnerProgram";
 import Tariffs from "./pages/Tariffs";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false,
+    },
+  },
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
