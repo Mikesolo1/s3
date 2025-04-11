@@ -14,17 +14,34 @@ const TELEGRAM_CHAT_ID = "-1001956765940"; // Default group chat ID
 export const sendTelegramMessage = async (message: string): Promise<Response> => {
   const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
   
-  return fetch(url, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      chat_id: TELEGRAM_CHAT_ID,
-      text: message,
-      parse_mode: "HTML",
-    }),
-  });
+  console.log("Sending message to Telegram:", message);
+  
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        chat_id: TELEGRAM_CHAT_ID,
+        text: message,
+        parse_mode: "HTML",
+      }),
+    });
+    
+    console.log("Telegram API response status:", response.status);
+    
+    if (!response.ok) {
+      const errorData = await response.json().catch(() => ({}));
+      console.error("Telegram API error:", errorData);
+      throw new Error(`Telegram API error: ${response.status}`);
+    }
+    
+    return response;
+  } catch (error) {
+    console.error("Error sending message to Telegram:", error);
+    throw error;
+  }
 };
 
 /**
