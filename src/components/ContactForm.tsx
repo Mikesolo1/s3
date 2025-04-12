@@ -31,14 +31,12 @@ const ContactForm = ({
   const { toast } = useToast();
   const { t } = useLanguage();
   
-  // Define form schema with required fields
   const formSchema = z.object({
     name: z.string().min(2, { message: t("form.errors.name") }),
     phone: z.string().min(5, { message: t("form.errors.phone") }),
     email: z.string().email({ message: t("form.errors.email") }),
     message: includeMessage ? z.string().optional() : z.string().optional(),
     service: z.string().optional(),
-    company: z.string().optional(),
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -48,8 +46,7 @@ const ContactForm = ({
       phone: "",
       email: "",
       message: "",
-      service: service || "",
-      company: "",
+      service: service,
     },
   });
 
@@ -57,17 +54,16 @@ const ContactForm = ({
     setIsSubmitting(true);
     
     try {
-      console.log('Form values:', values);
-      
-      // Send data to Telegram
-      const success = await sendToTelegram({
+      // Prepare data for Telegram
+      const telegramData = {
         name: values.name,
         phone: values.phone,
         email: values.email,
         message: values.message,
-        service: values.service || service,
-        company: values.company,
-      });
+        service: values.service || service
+      };
+      
+      const success = await sendToTelegram(telegramData);
       
       if (success) {
         toast({
@@ -144,20 +140,6 @@ const ContactForm = ({
           )}
         />
         
-        <FormField
-          control={form.control}
-          name="company"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("form.company")}</FormLabel>
-              <FormControl>
-                <Input placeholder={t("form.companyPlaceholder")} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
         {includeService && (
           <FormField
             control={form.control}
@@ -166,11 +148,7 @@ const ContactForm = ({
               <FormItem>
                 <FormLabel>{t("form.service")}</FormLabel>
                 <FormControl>
-                  <Input 
-                    placeholder={t("form.servicePlaceholder")} 
-                    {...field} 
-                    value={field.value || service}
-                  />
+                  <Input placeholder={t("form.servicePlaceholder")} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>

@@ -57,13 +57,10 @@ const Partner = () => {
               includeMessage={true}
               includeService={true}
               service={t("partner.service")}
-              buttonText={t("partner.button")}
               className="bg-whatsapp hover:bg-whatsapp-dark text-white px-8 py-6 rounded-lg text-lg flex items-center gap-2"
             >
-              <div className="flex items-center">
-                <HandshakeIcon className="w-5 h-5 mr-2" />
-                {t("partner.button")}
-              </div>
+              <HandshakeIcon className="w-5 h-5 mr-2" />
+              {t("partner.button")}
             </ContactDialog>
           </div>
         </div>
