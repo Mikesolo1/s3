@@ -51,9 +51,7 @@ const ContactDialog = ({
           >
             {children}
           </Button>
-        ) : (
-          <div className="inline-block">{children}</div>
-        )}
+        ) : children}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
