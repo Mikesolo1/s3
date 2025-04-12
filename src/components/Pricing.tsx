@@ -31,25 +31,25 @@ const Pricing = () => {
                   <thead>
                     <tr className="border-b">
                       <th className="text-left p-3">{t("pricing.service")}</th>
-                      <th className="text-center p-3">{t("pricing.plan")}</th>
                       <th className="text-center p-3">{t("pricing.meta")}</th>
                       <th className="text-center p-3">{t("pricing.commission")}</th>
+                      <th className="text-center p-3">{t("pricing.plan")}</th>
                       <th className="text-center p-3">{t("pricing.total")}</th>
                     </tr>
                   </thead>
                   <tbody>
                     <tr className="border-b">
                       <td className="p-3">GETLOO</td>
-                      <td className="text-center p-3">30 000</td>
-                      <td className="text-center p-3">10 000 (~8 ₽) = 80 000 ₽</td>
+                      <td className="text-center p-3">10 000 * (~8 ₽) = 80 000 ₽</td>
                       <td className="text-center p-3">10 000 * (~5 ₽) = 50 000 ₽</td>
+                      <td className="text-center p-3">7 970 ₽</td>
                       <td className="text-center p-3 font-bold">137 970 ₽</td>
                     </tr>
                     <tr className="border-b bg-green-50">
                       <td className="p-3 font-bold text-whatsapp">S3</td>
-                      <td className="text-center p-3">30 000</td>
-                      <td className="text-center p-3">10 000 (~8 ₽) = 80 000 ₽</td>
+                      <td className="text-center p-3">10 000 * (~8 ₽) = 80 000 ₽</td>
                       <td className="text-center p-3">10 000 * 0 = 0 ₽</td>
+                      <td className="text-center p-3">26 000 ₽</td>
                       <td className="text-center p-3 font-bold">106 000 ₽</td>
                     </tr>
                   </tbody>
