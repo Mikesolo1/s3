@@ -43,23 +43,16 @@ const ContactDialog = ({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        {typeof children === 'string' ? (
+        {React.isValidElement(children) ? 
+          children : 
           <Button 
             variant={variant} 
             size={size}
             className={className}
           >
-            {children}
+            {typeof children === 'string' ? children : buttonText || t("button.contact")}
           </Button>
-        ) : React.isValidElement(children) ? children : (
-          <Button 
-            variant={variant} 
-            size={size}
-            className={className}
-          >
-            {String(children)}
-          </Button>
-        )}
+        }
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
