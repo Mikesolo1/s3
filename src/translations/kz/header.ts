@@ -7,6 +7,4 @@ export const header = {
   "button.login": "Кіру",
   "button.contact": "Байланысу",
   "menu.partner": "Серіктестерге",
-  "header.contactTitle": "Өтінім қалдыру",
-  "header.contactDescription": "Форманы толтырыңыз, біз сізбен жақын арада байланысамыз",
 };
