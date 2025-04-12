@@ -2,9 +2,10 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useToast } from "@/components/ui/use-toast";
-import { MessageSquare } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
+import { MessageSquare, Loader2 } from "lucide-react";
 import { useLanguage } from '@/contexts/LanguageContext';
+import { sendToTelegram } from '@/lib/telegramApi';
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -22,26 +23,58 @@ const Contact = () => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      // Validate form
+      if (!formData.name || !formData.phone || !formData.email) {
+        toast({
+          title: t("form.error.title"),
+          description: "Пожалуйста, заполните все обязательные поля",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+        return;
+      }
+
+      const success = await sendToTelegram({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        message: formData.company ? `Компания: ${formData.company}` : ''
+      });
+
+      if (success) {
+        toast({
+          title: t("form.success.title"),
+          description: t("form.success.description"),
+        });
+        
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          company: ''
+        });
+      } else {
+        toast({
+          title: t("form.error.title"),
+          description: t("form.error.description"),
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
       toast({
-        title: t("contact.success"),
-        description: t("contact.success.desc"),
+        title: t("form.error.title"),
+        description: t("form.error.description"),
+        variant: "destructive",
       });
-      
-      setFormData({
-        name: '',
-        phone: '',
-        email: '',
-        company: ''
-      });
-      
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -59,20 +92,20 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                      {t("contact.name")}
+                      {t("form.name")}
                     </label>
                     <Input
                       id="name"
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      placeholder={t("contact.name")}
+                      placeholder={t("form.namePlaceholder")}
                       required
                     />
                   </div>
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
-                      {t("contact.phone")}
+                      {t("form.phone")}
                     </label>
                     <Input
                       id="phone"
@@ -80,7 +113,7 @@ const Contact = () => {
                       type="tel"
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+7 (999) 999-99-99"
+                      placeholder={t("form.phonePlaceholder")}
                       required
                     />
                   </div>
@@ -89,7 +122,7 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                      {t("contact.email")}
+                      {t("form.email")}
                     </label>
                     <Input
                       id="email"
@@ -97,27 +130,27 @@ const Contact = () => {
                       type="email"
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="example@company.com"
+                      placeholder={t("form.emailPlaceholder")}
                       required
                     />
                   </div>
                   <div>
                     <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-1">
-                      {t("contact.company")}
+                      {t("form.company")}
                     </label>
                     <Input
                       id="company"
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      placeholder={t("contact.company")}
+                      placeholder={t("form.companyPlaceholder")}
                     />
                   </div>
                 </div>
                 
                 <div className="flex flex-col sm:flex-row gap-4 items-center justify-between pt-4">
-                  <p className="text-sm text-gray-500 text-center sm:text-left order-2 sm:order-1">
-                    {t("contact.privacy")}
+                  <p className="text-xs text-gray-500 text-center sm:text-left order-2 sm:order-1">
+                    {t("form.privacy")}
                   </p>
                   <Button 
                     type="submit" 
@@ -126,16 +159,13 @@ const Contact = () => {
                   >
                     {isSubmitting ? (
                       <span className="flex items-center">
-                        <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                        </svg>
-                        {t("contact.sending")}
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        {t("form.sending")}
                       </span>
                     ) : (
                       <span className="flex items-center">
                         <MessageSquare className="mr-2 h-4 w-4" />
-                        {t("contact.submit")}
+                        {t("form.submit")}
                       </span>
                     )}
                   </Button>

@@ -10,6 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { sendToTelegram } from "@/lib/telegramApi";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Loader2 } from "lucide-react";
 
 interface ContactFormProps {
   onSuccess?: () => void;
@@ -33,7 +34,7 @@ const ContactForm = ({
   const formSchema = z.object({
     name: z.string().min(2, { message: t("form.errors.name") }),
     phone: z.string().min(5, { message: t("form.errors.phone") }),
-    email: z.string().email({ message: t("form.errors.email") }).optional(),
+    email: z.string().email({ message: t("form.errors.email") }),
     message: includeMessage ? z.string().optional() : z.string().optional(),
     service: z.string().optional(),
   });
@@ -53,13 +54,13 @@ const ContactForm = ({
     setIsSubmitting(true);
     
     try {
-      // Ensure required fields are handled
+      // Prepare data for Telegram
       const telegramData = {
-        name: values.name, // This is required
-        phone: values.phone, // This is required
+        name: values.name,
+        phone: values.phone,
         email: values.email,
         message: values.message,
-        service: values.service
+        service: values.service || service
       };
       
       const success = await sendToTelegram(telegramData);
@@ -118,7 +119,7 @@ const ContactForm = ({
             <FormItem>
               <FormLabel>{t("form.phone")}</FormLabel>
               <FormControl>
-                <Input placeholder="+7 (999) 123-45-67" {...field} />
+                <Input placeholder={t("form.phonePlaceholder")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -132,7 +133,7 @@ const ContactForm = ({
             <FormItem>
               <FormLabel>{t("form.email")}</FormLabel>
               <FormControl>
-                <Input placeholder="email@example.com" {...field} />
+                <Input placeholder={t("form.emailPlaceholder")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -175,13 +176,23 @@ const ContactForm = ({
           />
         )}
         
-        <Button 
-          type="submit" 
-          className="w-full bg-whatsapp hover:bg-whatsapp-dark" 
-          disabled={isSubmitting}
-        >
-          {buttonText || t("form.submit")}
-        </Button>
+        <div className="pt-2">
+          <p className="text-xs text-gray-500 mb-4">{t("form.privacy")}</p>
+          <Button 
+            type="submit" 
+            className="w-full bg-whatsapp hover:bg-whatsapp-dark" 
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <span className="flex items-center">
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                {t("form.sending")}
+              </span>
+            ) : (
+              buttonText || t("form.submit")
+            )}
+          </Button>
+        </div>
       </form>
     </Form>
   );

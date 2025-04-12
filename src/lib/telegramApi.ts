@@ -8,7 +8,7 @@ interface TelegramMessage {
 }
 
 const TELEGRAM_BOT_TOKEN = "7969964492:AAGBBkXJyLlRFeovbv8uZr4fdmgNmuO9gXQ";
-const TELEGRAM_CHAT_ID = "-1001986564650"; // Замените на ID вашего чата
+const TELEGRAM_CHAT_ID = "-1001986564650";
 
 export const sendToTelegram = async (data: TelegramMessage): Promise<boolean> => {
   try {

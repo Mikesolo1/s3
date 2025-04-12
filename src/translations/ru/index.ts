@@ -12,6 +12,7 @@ import { footer } from './footer';
 import { language } from './language';
 import { partner } from './partner';
 import { tariffs } from './tariffs';
+import { form } from './form';
 
 export const ru = {
   ...header,
@@ -26,5 +27,6 @@ export const ru = {
   ...about,
   ...footer,
   ...partner,
-  ...tariffs
+  ...tariffs,
+  ...form
 };

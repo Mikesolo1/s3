@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { sendToTelegram } from "@/lib/telegramApi";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Loader2 } from "lucide-react";
 
 interface TariffFormProps {
   onSuccess?: () => void;
@@ -23,7 +24,7 @@ const TariffForm = ({ onSuccess, tariffName }: TariffFormProps) => {
   const formSchema = z.object({
     name: z.string().min(2, { message: t("form.errors.name") }),
     phone: z.string().min(5, { message: t("form.errors.phone") }),
-    email: z.string().email({ message: t("form.errors.email") }).optional(),
+    email: z.string().email({ message: t("form.errors.email") }),
     tariff: z.string(),
   });
 
@@ -88,7 +89,7 @@ const TariffForm = ({ onSuccess, tariffName }: TariffFormProps) => {
             <FormItem>
               <FormLabel>{t("form.tariff")}</FormLabel>
               <FormControl>
-                <Input {...field} readOnly />
+                <Input {...field} readOnly className="bg-gray-50" />
               </FormControl>
             </FormItem>
           )}
@@ -115,7 +116,7 @@ const TariffForm = ({ onSuccess, tariffName }: TariffFormProps) => {
             <FormItem>
               <FormLabel>{t("form.phone")}</FormLabel>
               <FormControl>
-                <Input placeholder="+7 (999) 123-45-67" {...field} />
+                <Input placeholder={t("form.phonePlaceholder")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -129,20 +130,30 @@ const TariffForm = ({ onSuccess, tariffName }: TariffFormProps) => {
             <FormItem>
               <FormLabel>{t("form.email")}</FormLabel>
               <FormControl>
-                <Input placeholder="email@example.com" {...field} />
+                <Input placeholder={t("form.emailPlaceholder")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
         
-        <Button 
-          type="submit" 
-          className="w-full bg-whatsapp hover:bg-whatsapp-dark" 
-          disabled={isSubmitting}
-        >
-          {t("form.submit")}
-        </Button>
+        <div className="pt-2">
+          <p className="text-xs text-gray-500 mb-4">{t("form.privacy")}</p>
+          <Button 
+            type="submit" 
+            className="w-full bg-whatsapp hover:bg-whatsapp-dark" 
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              <span className="flex items-center">
+                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                {t("form.sending")}
+              </span>
+            ) : (
+              t("form.submit")
+            )}
+          </Button>
+        </div>
       </form>
     </Form>
   );
