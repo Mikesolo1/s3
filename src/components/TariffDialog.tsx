@@ -1,4 +1,5 @@
 
+import React, { ReactNode, useState } from "react";
 import { 
   Dialog, 
   DialogContent, 
@@ -9,7 +10,6 @@ import {
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { ReactNode, useState } from "react";
 import TariffForm from "./TariffForm";
 
 interface TariffDialogProps {

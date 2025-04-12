@@ -1,4 +1,5 @@
 
+import React, { ReactNode, useState } from "react";
 import { 
   Dialog, 
   DialogContent, 
@@ -10,7 +11,6 @@ import {
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 import ContactForm from "./ContactForm";
-import { ReactNode, useState } from "react";
 
 interface ContactDialogProps {
   children: ReactNode;
