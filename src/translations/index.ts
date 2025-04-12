@@ -469,4 +469,4 @@ export const translations = {
     
     "stats.vs.title": "WhatsApp vs СМС",
     "stats.vs.parameter": "Параметр",
-    "stats.vs.delivery": "Ж
+    "stats.vs.delivery
