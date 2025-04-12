@@ -26,6 +26,7 @@ const TariffForm = ({ onSuccess, tariffName }: TariffFormProps) => {
     phone: z.string().min(5, { message: t("form.errors.phone") }),
     email: z.string().email({ message: t("form.errors.email") }),
     tariff: z.string(),
+    company: z.string().optional(),
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -35,6 +36,7 @@ const TariffForm = ({ onSuccess, tariffName }: TariffFormProps) => {
       phone: "",
       email: "",
       tariff: tariffName,
+      company: "",
     },
   });
 
@@ -42,11 +44,14 @@ const TariffForm = ({ onSuccess, tariffName }: TariffFormProps) => {
     setIsSubmitting(true);
     
     try {
+      console.log('Tariff form values:', values);
+      
       const success = await sendToTelegram({
         name: values.name,
         phone: values.phone,
         email: values.email,
         service: `Тариф: ${values.tariff}`,
+        company: values.company,
       });
       
       if (success) {
@@ -131,6 +136,20 @@ const TariffForm = ({ onSuccess, tariffName }: TariffFormProps) => {
               <FormLabel>{t("form.email")}</FormLabel>
               <FormControl>
                 <Input placeholder={t("form.emailPlaceholder")} {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+
+        <FormField
+          control={form.control}
+          name="company"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>{t("form.company")}</FormLabel>
+              <FormControl>
+                <Input placeholder={t("form.companyPlaceholder")} {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
