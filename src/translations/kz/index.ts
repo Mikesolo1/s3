@@ -12,7 +12,6 @@ import { footer } from './footer';
 import { language } from './language';
 import { partner } from './partner';
 import { tariffs } from './tariffs';
-import { form } from './form';
 
 export const kz = {
   ...header,
@@ -27,6 +26,5 @@ export const kz = {
   ...about,
   ...footer,
   ...partner,
-  ...tariffs,
-  ...form
+  ...tariffs
 };

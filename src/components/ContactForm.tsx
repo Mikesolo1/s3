@@ -10,7 +10,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { sendToTelegram } from "@/lib/telegramApi";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Loader2 } from "lucide-react";
 
 interface ContactFormProps {
   onSuccess?: () => void;
@@ -31,14 +30,12 @@ const ContactForm = ({
   const { toast } = useToast();
   const { t } = useLanguage();
   
-  // Define form schema with required fields
   const formSchema = z.object({
     name: z.string().min(2, { message: t("form.errors.name") }),
     phone: z.string().min(5, { message: t("form.errors.phone") }),
-    email: z.string().email({ message: t("form.errors.email") }),
+    email: z.string().email({ message: t("form.errors.email") }).optional(),
     message: includeMessage ? z.string().optional() : z.string().optional(),
     service: z.string().optional(),
-    company: z.string().optional(),
   });
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -48,8 +45,7 @@ const ContactForm = ({
       phone: "",
       email: "",
       message: "",
-      service: service || "",
-      company: "",
+      service: service,
     },
   });
 
@@ -57,17 +53,16 @@ const ContactForm = ({
     setIsSubmitting(true);
     
     try {
-      console.log('Form values:', values);
-      
-      // Send data to Telegram
-      const success = await sendToTelegram({
-        name: values.name,
-        phone: values.phone,
+      // Ensure required fields are handled
+      const telegramData = {
+        name: values.name, // This is required
+        phone: values.phone, // This is required
         email: values.email,
         message: values.message,
-        service: values.service || service,
-        company: values.company,
-      });
+        service: values.service
+      };
+      
+      const success = await sendToTelegram(telegramData);
       
       if (success) {
         toast({
@@ -123,7 +118,7 @@ const ContactForm = ({
             <FormItem>
               <FormLabel>{t("form.phone")}</FormLabel>
               <FormControl>
-                <Input placeholder={t("form.phonePlaceholder")} {...field} />
+                <Input placeholder="+7 (999) 123-45-67" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -137,21 +132,7 @@ const ContactForm = ({
             <FormItem>
               <FormLabel>{t("form.email")}</FormLabel>
               <FormControl>
-                <Input placeholder={t("form.emailPlaceholder")} {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        
-        <FormField
-          control={form.control}
-          name="company"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>{t("form.company")}</FormLabel>
-              <FormControl>
-                <Input placeholder={t("form.companyPlaceholder")} {...field} />
+                <Input placeholder="email@example.com" {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -166,11 +147,7 @@ const ContactForm = ({
               <FormItem>
                 <FormLabel>{t("form.service")}</FormLabel>
                 <FormControl>
-                  <Input 
-                    placeholder={t("form.servicePlaceholder")} 
-                    {...field} 
-                    value={field.value || service}
-                  />
+                  <Input placeholder={t("form.servicePlaceholder")} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -198,23 +175,13 @@ const ContactForm = ({
           />
         )}
         
-        <div className="pt-2">
-          <p className="text-xs text-gray-500 mb-4">{t("form.privacy")}</p>
-          <Button 
-            type="submit" 
-            className="w-full bg-whatsapp hover:bg-whatsapp-dark" 
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <span className="flex items-center">
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                {t("form.sending")}
-              </span>
-            ) : (
-              buttonText || t("form.submit")
-            )}
-          </Button>
-        </div>
+        <Button 
+          type="submit" 
+          className="w-full bg-whatsapp hover:bg-whatsapp-dark" 
+          disabled={isSubmitting}
+        >
+          {buttonText || t("form.submit")}
+        </Button>
       </form>
     </Form>
   );

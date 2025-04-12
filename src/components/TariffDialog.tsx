@@ -33,16 +33,23 @@ const TariffDialog = ({
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogTrigger asChild>
-        {React.isValidElement(children) ? 
-          children : 
+        {typeof children === 'string' ? (
           <Button 
             variant={variant} 
             size={size}
             className={className}
           >
-            {typeof children === 'string' ? children : t("form.submit")}
+            {children}
           </Button>
-        }
+        ) : React.isValidElement(children) ? children : (
+          <Button 
+            variant={variant} 
+            size={size}
+            className={className}
+          >
+            {String(children)}
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
