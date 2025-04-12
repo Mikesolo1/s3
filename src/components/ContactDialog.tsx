@@ -51,7 +51,15 @@ const ContactDialog = ({
           >
             {children}
           </Button>
-        ) : children}
+        ) : React.isValidElement(children) ? children : (
+          <Button 
+            variant={variant} 
+            size={size}
+            className={className}
+          >
+            {String(children)}
+          </Button>
+        )}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
