@@ -5,7 +5,7 @@ import VimeoPlayer from './VimeoPlayer';
 
 const VideoSection = () => {
   const { t } = useLanguage();
-  const vimeoVideoId = '890544349'; // Example ID
+  const vimeoVideoId = '1074867141'; // Example ID
   
   return (
     <div className="relative">
