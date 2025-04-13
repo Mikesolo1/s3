@@ -1,16 +1,15 @@
 
 import { useState } from "react";
-import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { sendToTelegram } from "@/lib/telegramApi";
 import { useToast } from "@/hooks/use-toast";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Loader2 } from "lucide-react";
+import FormSubmitButton from "@/components/ui/form-submit-button";
+import { createContactFormSchema, ContactFormValues } from "@/lib/form-schemas";
 
 interface ContactFormProps {
   onSuccess?: () => void;
@@ -32,16 +31,9 @@ const ContactForm = ({
   const { t } = useLanguage();
   
   // Define form schema with required fields
-  const formSchema = z.object({
-    name: z.string().min(2, { message: t("form.errors.name") }),
-    phone: z.string().min(5, { message: t("form.errors.phone") }),
-    email: z.string().email({ message: t("form.errors.email") }),
-    message: includeMessage ? z.string().optional() : z.string().optional(),
-    service: z.string().optional(),
-    company: z.string().optional(),
-  });
+  const formSchema = createContactFormSchema(t, includeMessage);
 
-  const form = useForm<z.infer<typeof formSchema>>({
+  const form = useForm<ContactFormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
@@ -53,7 +45,7 @@ const ContactForm = ({
     },
   });
 
-  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: ContactFormValues) => {
     setIsSubmitting(true);
     
     try {
@@ -200,20 +192,11 @@ const ContactForm = ({
         
         <div className="pt-2">
           <p className="text-xs text-gray-500 mb-4">{t("form.privacy")}</p>
-          <Button 
-            type="submit" 
-            className="w-full bg-whatsapp hover:bg-whatsapp-dark" 
-            disabled={isSubmitting}
-          >
-            {isSubmitting ? (
-              <span className="flex items-center">
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                {t("form.sending")}
-              </span>
-            ) : (
-              buttonText || t("form.submit")
-            )}
-          </Button>
+          <FormSubmitButton 
+            isSubmitting={isSubmitting} 
+            loadingText={t("form.sending")}
+            buttonText={buttonText || t("form.submit")}
+          />
         </div>
       </form>
     </Form>
