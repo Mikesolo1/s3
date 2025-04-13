@@ -9,7 +9,7 @@ interface TelegramMessage {
 }
 
 const TELEGRAM_BOT_TOKEN = "7969964492:AAGBBkXJyLlRFeovbv8uZr4fdmgNmuO9gXQ";
-const TELEGRAM_CHAT_ID = "-1001986564650"; // ID чата в формате строки
+const TELEGRAM_CHAT_ID = "4666180937"; // ID чата в формате строки
 
 export const sendToTelegram = async (data: TelegramMessage): Promise<boolean> => {
   try {
@@ -30,19 +30,15 @@ ${data.message ? `💬 Сообщение: ${data.message}` : ''}
     // Используем прокси для обхода проблем с CORS
     const proxyUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
     
-    // Исправляем проблему с форматом chat_id
-    // Проблема была в том, что мы пытались использовать формат строки для chat_id,
-    // но Telegram API требует числовой формат для групповых чатов
-    
-    const chatId = -1001986564650; // Используем числовой формат, без кавычек
-    
+    // Переходим на использование строкового формата ID чата
+    // Используем предоставленный ID: 4666180937
     const response = await fetch(proxyUrl, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        chat_id: chatId,
+        chat_id: TELEGRAM_CHAT_ID, // Используем строковый формат ID
         text: text,
         parse_mode: 'HTML',
       }),
