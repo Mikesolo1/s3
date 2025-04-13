@@ -11,7 +11,6 @@ import Partner from '@/components/Partner';
 import About from '@/components/About';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
-import VideoSection from '@/components/VideoSection';
 
 const Index = () => {
   // Load Vimeo player script
@@ -34,7 +33,6 @@ const Index = () => {
         <Features />
         <CaseStudies />
         <Stats />
-        <VideoSection />
         <Pricing />
         <Team />
         <Partner />
