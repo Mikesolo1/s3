@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Header from '@/components/Header';
 import Hero from '@/components/Hero';
 import Features from '@/components/Features';
@@ -13,18 +13,6 @@ import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 const Index = () => {
-  // Load Vimeo player script
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = "https://player.vimeo.com/api/player.js";
-    script.async = true;
-    document.body.appendChild(script);
-    
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
-  
   return (
     <div className="min-h-screen">
       <Header />

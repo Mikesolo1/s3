@@ -9,11 +9,11 @@ interface TelegramMessage {
 }
 
 const TELEGRAM_BOT_TOKEN = "7969964492:AAGBBkXJyLlRFeovbv8uZr4fdmgNmuO9gXQ";
-const TELEGRAM_CHAT_ID = "-1001986564650"; // Keep the original chat ID
+const TELEGRAM_CHAT_ID = "-1001986564650"; // ID чата в формате строки
 
 export const sendToTelegram = async (data: TelegramMessage): Promise<boolean> => {
   try {
-    // Format the message text with all available fields
+    // Форматирование текста сообщения со всеми доступными полями
     const text = `
 🔔 Новая заявка с сайта!
 
@@ -25,10 +25,16 @@ ${data.service ? `🔧 Услуга: ${data.service}` : ''}
 ${data.message ? `💬 Сообщение: ${data.message}` : ''}
 `;
 
-    console.log('Sending message to Telegram:', text);
+    console.log('Отправка сообщения в Telegram:', text);
 
-    // Change the API endpoint to use a proxy to bypass CORS issues
+    // Используем прокси для обхода проблем с CORS
     const proxyUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+    
+    // Исправляем проблему с форматом chat_id
+    // Проблема была в том, что мы пытались использовать формат строки для chat_id,
+    // но Telegram API требует числовой формат для групповых чатов
+    
+    const chatId = -1001986564650; // Используем числовой формат, без кавычек
     
     const response = await fetch(proxyUrl, {
       method: 'POST',
@@ -36,7 +42,7 @@ ${data.message ? `💬 Сообщение: ${data.message}` : ''}
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        chat_id: TELEGRAM_CHAT_ID,
+        chat_id: chatId,
         text: text,
         parse_mode: 'HTML',
       }),
@@ -45,29 +51,6 @@ ${data.message ? `💬 Сообщение: ${data.message}` : ''}
     if (!response.ok) {
       const responseData = await response.json();
       console.error('Telegram API error:', responseData);
-      
-      // If the issue is with the chat ID, try an alternative approach
-      if (responseData.description && responseData.description.includes("chat not found")) {
-        console.log('Trying alternative chat ID format...');
-        
-        // Try without quotes
-        const alternativeResponse = await fetch(proxyUrl, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            chat_id: -1001986564650, // As a number without quotes
-            text: text,
-            parse_mode: 'HTML',
-          }),
-        });
-        
-        const altResponseData = await alternativeResponse.json();
-        console.log('Alternative response:', altResponseData);
-        return altResponseData.ok;
-      }
-      
       return false;
     }
     

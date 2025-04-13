@@ -1,7 +1,7 @@
 
 import React from 'react';
 
-// Empty component as we're moving its functionality to About.tsx
+// Пустой компонент, так как его функциональность перенесена в About.tsx
 const VideoSection = () => {
   return null;
 };
