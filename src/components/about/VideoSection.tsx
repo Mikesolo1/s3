@@ -12,12 +12,12 @@ const VideoSection = () => {
       <div className="aspect-w-16 aspect-h-9 bg-gray-200">
         <VimeoPlayer videoId={vimeoVideoId} />
       </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
-        <div className="p-4 text-white">
-          <h3 className="font-bold text-lg">{t("about.video.title")}</h3>
-          <p className="text-sm">{t("about.video.subtitle")}</p>
-        </div>
-      </div>
+  <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-transparent flex items-start pointer-events-none">
+     <div className="p-4 text-white mt-4">
+      <h3 className="font-bold text-lg">{t("about.video.title")}</h3>
+    <p className="text-sm">{t("about.video.subtitle")}</p>
+    </div>
+   </div>
     </div>
   );
 };
